@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 18 71% 67%; /* Coral */
+  --accent: 45 100% 51%; /* Gold */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 9%;
+  --muted: 0 0% 96%;
+  --border: 0 0% 90%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: white;
+  color: hsl(var(--foreground));
+}
+
+/* Smooth scrolling animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes slide-in-up {
+  from {
+    opacity: 0%;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0%; }
+  to { opacity: 100%; }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0%;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-in-up 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s ease-out forwards;
+}
+
+/* Custom gradient backgrounds */
+.gradient-coral {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+}
+
+.gradient-subtle {
+  background: linear-gradient(135deg, hsl(var(--muted)) 0%, white 100%);
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgb(255 255 255 / 10%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgb(255 255 255 / 20%);
+}
+
+/* Sticky waitlist button */
+.sticky-waitlist {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+@media (width <= 768px) {
+  .sticky-waitlist {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 3px;
+}
+
+/* Hide scrollbar for mobile */
+@media (width <= 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
